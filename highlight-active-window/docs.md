@@ -28,7 +28,6 @@ headerbar:backdrop button:backdrop {
 }*/
 ```
 
-
 Add border highlight to active window on Cinnamon
 ```
 /*Border colour for active & inactive windows*/
