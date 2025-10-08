@@ -2,6 +2,7 @@
 
 ## Terminal apps
 - fastfetch/neofetch
+- locate
 - htop
 - git
 
