@@ -11,5 +11,5 @@ echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
 ```
 2. You may change the percentage for `charge_start_threshold` and `charge_stop_threshold`.
 
-> [!INFO]
+> [!TIP]
 > If your laptop has multiple batteries, run `upower -e` to check the battery name e.g., BAT0, BAT1,...
