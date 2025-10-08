@@ -23,7 +23,7 @@
 - Wireguird
 
 ## Office
-- FreeOffie SoftMaker
+- SoftMaker FreeOffice
 - OnlyOffice
 
 ## Utilities
