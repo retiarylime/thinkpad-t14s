@@ -1,8 +1,9 @@
-## 1. Original resource: gtk.css from [https://github.com/the-allanc/minty-color-titles](https://github.com/the-allanc/minty-color-titles)
-## 2. Copy to ~/.config/gtk-3.0/gtk.css
-## 3. Edits made to the original gtk.css
+### 1. Original resource:
+   - gtk.css from [https://github.com/the-allanc/minty-color-titles](https://github.com/the-allanc/minty-color-titles)
+### 2. Copy to ~/.config/gtk-3.0/gtk.css
+### 3. Edits made to the original gtk.css
 
-### Comment the coloured headerbar for active window
+Comment the coloured headerbar for active window
 ```
 /*headerbar {
     box-shadow: none;
@@ -28,7 +29,7 @@ headerbar:backdrop button:backdrop {
 ```
 
 
-### Add border highlight to active window on Cinnamon
+Add border highlight to active window on Cinnamon
 ```
 /*Border colour for active & inactive windows*/
 
@@ -61,7 +62,7 @@ border-bottom: 1px solid  @inactive_window_bg_color;
 
 ```
 
-### Change all background image for titlebuttons to square
+Change all background image for titlebuttons to square
 ```
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.8, to(@inactive_window_fg_color), to(transparent));
 ```
