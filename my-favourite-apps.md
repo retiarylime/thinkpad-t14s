@@ -1,4 +1,4 @@
-# Must have linux apss
+# My favourite linux apps
 
 ## Terminal apps
 - fastfetch/neofetch
