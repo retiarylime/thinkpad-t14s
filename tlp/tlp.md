@@ -52,7 +52,7 @@ sudo systemctl mask power-profiles-daemon.service
 > 
 > After that, the power profiles must appear on the power settings and on the topbar.
 
-## 3. Remove battery charging start/stop threshold
+## 3. Reset battery charge start/stop threshold
 
 ```
 echo 0 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
