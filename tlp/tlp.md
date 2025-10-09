@@ -89,27 +89,17 @@ sudo sublime_text /etc/tlp.d/99-tlp.conf
 (https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/)[https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/]
 
 
-Copy below config to `/etc/tlp.d/99-tlp.conf` <br>
+Copy below config to `/etc/tlp.d/98-tlp.conf` <br>
 (https://gist.github.com/kikislater/4de3d79b0459681933ba630e29bcb0e0)[https://gist.github.com/kikislater/4de3d79b0459681933ba630e29bcb0e0]
 
 
-OR
+AND
 
-Copy below config to `/etc/tlp.d/98-tlp.conf` <br>
+Copy below config to `/etc/tlp.d/99-tlp.conf` to override above <br>
 (https://gist.github.com/pauloromeira/787c75d83777098453f5c2ed7eafa42a)[https://gist.github.com/pauloromeira/787c75d83777098453f5c2ed7eafa42a]
 
-```
-# Add below to use TLP to achieve the same effect as power-profiles-daemon
 
-PLATFORM_PROFILE_ON_AC=balanced
-PLATFORM_PROFILE_ON_BAT=low-power
-
-CPU_ENERGY_PERF_POLICY_ON_AC=balance_performance
-CPU_ENERGY_PERF_POLICY_ON_BAT=power
-
-CPU_BOOST_ON_AC=1
-CPU_BOOST_ON_BAT=0
-```
+## 6. Start TLP
 
 ```
 sudo tlp start
