@@ -82,18 +82,25 @@ sudo apt -t trixie-backports install tlp tlp-rdw
 ```
 sudo mv /etc/tlp.conf /etc/tlp.conf.bak
 sudo cp /etc/tlp.conf.bak /etc/tlp.conf
-sudo touch /etc/tlp.d/99-tlp.conf
-sudo sublime_text /etc/tlp.d/99-tlp.conf
 ```
 
 [https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/](https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/)
 
+```
+sudo touch /etc/tlp.d/98-tlp.conf
+sudo sublime_text /etc/tlp.d/98-tlp.conf
+```
 
 Copy below config to `/etc/tlp.d/98-tlp.conf` <br>
 [https://gist.github.com/kikislater/4de3d79b0459681933ba630e29bcb0e0](https://gist.github.com/kikislater/4de3d79b0459681933ba630e29bcb0e0)
 
 
 AND
+
+```
+sudo touch /etc/tlp.d/99-tlp.conf
+sudo sublime_text /etc/tlp.d/99-tlp.conf
+```
 
 Copy below config to `/etc/tlp.d/99-tlp.conf` to override above <br>
 [https://gist.github.com/pauloromeira/787c75d83777098453f5c2ed7eafa42a](https://gist.github.com/pauloromeira/787c75d83777098453f5c2ed7eafa42a)
