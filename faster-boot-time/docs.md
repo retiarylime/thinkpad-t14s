@@ -21,8 +21,10 @@ Result:
  317ms systemd-logind.service
 ```
 
-`NetworkManager-wait-online.service` is taking the longest time which is 5.7s
+We can see that `NetworkManager-wait-online.service` is taking the longest time which is 5.7s.
 
 ### 2. Disable `NetworkManager-wait-online.service`
 
 Run `sudo systemctl disable NetworkManager-wait-online.service`
+
+### 3. Try reboot to see the changes
