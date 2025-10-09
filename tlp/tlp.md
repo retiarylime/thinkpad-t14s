@@ -10,7 +10,7 @@
 
 (https://www.reddit.com/r/archlinux/comments/r41ax3/uninstall_or_disable_gnome_powerprofiledaemon/)[https://www.reddit.com/r/archlinux/comments/r41ax3/uninstall_or_disable_gnome_powerprofiledaemon/]
 
-In TLP's documentation the suggested way to disable power-profiles-daemon is to mask the service:
+> In TLP's documentation the suggested way to disable power-profiles-daemon is to mask the service:
 
 (https://linrunner.de/tlp/faq/ppd.html)[https://linrunner.de/tlp/faq/ppd.html]
 
@@ -23,34 +23,34 @@ sudo systemctl mask power-profiles-daemon.service
 
 (https://www.reddit.com/r/Fedora/comments/qmmzj6/comment/hjaw2uq/?context=3)[https://www.reddit.com/r/Fedora/comments/qmmzj6/comment/hjaw2uq/?context=3]
 
-I have repored this as a bug since I also have the issue.
-
-https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/issues/58
-
-Upvote it so it can have more attention.
-
--------Update:------
-
-I got answer, first check if your service is not running with
-
-```
-sudo systemctl status power-profiles-daemon.service
-```
-
-The output must be something similar to this:
-
-```
-○ power-profiles-daemon.service
- Loaded: masked (Reason: Unit power-profiles-daemon.service is masked.)
- Active: inactive (dead)
-If it is the case, the services is masked (disabled), so we need to unmasked and restart with the commands
-```
-```
-sudo systemctl unmask power-profiles-daemon.service
-sudo systemctl restart power-profiles-daemon.service
-```
-
-After that, the power profiles must appear on the power settings and on the topbar.
+> I have repored this as a bug since I also have the issue.
+> 
+> (https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/issues/58)[https://gitlab.freedesktop.org/hadess/power-profiles-daemon/-/issues/58]
+> 
+> Upvote it so it can have more attention.
+> 
+> -------Update:------
+> 
+> I got answer, first check if your service is not running with
+> 
+> ```
+> sudo systemctl status power-profiles-daemon.service
+> ```
+> 
+> The output must be something similar to this:
+> 
+> ```
+> ○ power-profiles-daemon.service
+>  Loaded: masked (Reason: Unit power-profiles-daemon.service is masked.)
+>  Active: inactive (dead)
+> If it is the case, the services is masked (disabled), so we need to unmasked and restart with the commands
+> ```
+> ```
+> sudo systemctl unmask power-profiles-daemon.service
+> sudo systemctl restart power-profiles-daemon.service
+> ```
+> 
+> After that, the power profiles must appear on the power settings and on the topbar.
 
 ## 3. Remove battery charging start/stop threshold
 
