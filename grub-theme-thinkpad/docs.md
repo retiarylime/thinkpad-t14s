@@ -33,4 +33,3 @@ sudo cp -r /path/to/the/cloned/repo/thinkpad-t14s/grub-theme-thinkpad/hyperfluen
 > If you are running Fedora/CentOS/RHEL/SUSE, run below `sudo grub2-mkconfig -o /boot/grub2/grub.cfg`
 
 5. Run `reboot` to reboot the system and test your new awesome-looking GRUB theme! :)
-test
