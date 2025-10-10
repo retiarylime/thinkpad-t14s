@@ -1,4 +1,4 @@
-# System Information
+# System Info
 
 ```
 System:
@@ -115,4 +115,46 @@ Info:
   Processes: 390 Power: uptime: 53m states: freeze,mem suspend: s2idle wakeups: 0
     hibernate: disabled Init: systemd v: 257 default: graphical
   Compilers: gcc: 14.2.0 Client: Cinnamon v: 6.4.13 inxi: 3.3.38
+```
+
+# Battery Info
+
+```
+$ upower -i /org/freedesktop/UPower/devices/battery_BAT0
+
+  native-path:          BAT0
+  vendor:               Celxpert
+  model:                5B10W51815
+  serial:               595
+  power supply:         yes
+  updated:              Fri 10 Oct 2025 10:22:02 +08 (21 seconds ago)
+  has history:          yes
+  has statistics:       yes
+  battery
+    present:             yes
+    rechargeable:        yes
+    state:               discharging
+    warning-level:       low
+    energy:              11.69 Wh
+    energy-empty:        0 Wh
+    energy-full:         56.98 Wh
+    energy-full-design:  57 Wh
+    energy-rate:         5.051 W
+    voltage:             14.901 V
+    charge-cycles:       155
+    time to empty:       2.3 hours
+    percentage:          20%
+    capacity:            99.9649%
+    technology:          lithium-polymer
+    charge-start-threshold:        75%
+    charge-end-threshold:          80%
+    charge-threshold-supported:    yes
+    icon-name:          'battery-caution-symbolic'
+  History (rate):
+    1760062922  5.051 discharging
+    1760062892  8.635 discharging
+    1760062882  0.000 discharging
+    1760062875  47.053  charging
+    1760062865  0.000 charging
+    1760062847  3.465 discharging
 ```
