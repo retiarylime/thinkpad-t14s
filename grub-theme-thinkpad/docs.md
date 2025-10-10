@@ -26,6 +26,7 @@ sudo cp -r /path/to/the/cloned/repo/thinkpad-t14s/grub-theme-thinkpad/hyperfluen
 
   ```sh
   sudo grub-mkconfig -o /boot/grub/grub.cfg #Debian/Ubuntu
+  sudo update-grub
   ```
 
 > [!NOTE]
