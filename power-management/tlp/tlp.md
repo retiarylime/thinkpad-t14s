@@ -83,8 +83,7 @@ sudo apt -t trixie-backports install tlp tlp-rdw
 
 **Create backup for original `/etc/tlp.conf`**
 ```
-sudo mv /etc/tlp.conf /etc/tlp.conf.bak
-sudo cp /etc/tlp.conf.bak /etc/tlp.conf
+sudo cp /etc/tlp.conf /etc/tlp.conf.bak
 ```
 
 [https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/](https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/)
