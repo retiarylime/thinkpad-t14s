@@ -69,6 +69,8 @@ sudo nano /etc/apt/sources.list
 # Add the following line to your /etc/apt/sources.list:
 
 deb http://ftp.debian.org/debian DIST-backports main
+```
+```
 
 sudo apt update
 
