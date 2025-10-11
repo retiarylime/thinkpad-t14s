@@ -114,4 +114,5 @@ Copy below config to `/etc/tlp.d/99-tlp.conf` to override above <br>
 ```
 sudo tlp start
 ```
+## 7. Logout & relogin to apply changes
 
