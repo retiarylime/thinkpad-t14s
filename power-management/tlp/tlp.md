@@ -55,7 +55,7 @@ sudo systemctl mask power-profiles-daemon.service
 ## 3. Reset battery charge start/stop threshold
 
 ```
-echo 0 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
+echo 95 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
 echo 100 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
 ```
 
