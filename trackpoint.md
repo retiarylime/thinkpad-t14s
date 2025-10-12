@@ -94,94 +94,94 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 
 1. Conf to use `evdev` driver
 
-```
-sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
-```
-```
-Section "InputClass"
-    Identifier    "Trackpoint Wheel Emulation"
-    Driver "evdev"
-    MatchProduct    "TPPS/2 Elan TrackPoint"
-    MatchDevicePath    "/dev/input/event*"
-    Option        "EmulateWheel"        "true"
-    Option        "EmulateWheelButton"    "2"
-    Option        "Emulate3Buttons"    "false"
-    Option        "XAxisMapping"        "6 7"
-    Option        "YAxisMapping"        "4 5"
-EndSection 
-```
+	```
+	sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
+	```
+	```
+	Section "InputClass"
+	    Identifier    "Trackpoint Wheel Emulation"
+	    Driver "evdev"
+	    MatchProduct    "TPPS/2 Elan TrackPoint"
+	    MatchDevicePath    "/dev/input/event*"
+	    Option        "EmulateWheel"        "true"
+	    Option        "EmulateWheelButton"    "2"
+	    Option        "Emulate3Buttons"    "false"
+	    Option        "XAxisMapping"        "6 7"
+	    Option        "YAxisMapping"        "4 5"
+	EndSection 
+	```
 
 2. Logout & relogin to apply changes above
 
 3. Configure `udev` rules fro trackpoint
 
-```
-sudo nano /etc/udev/rules.d/10-trackpoint.rules
-```
-```
-ACTION=="add",
-SUBSYSTEM=="input",
-ATTR{name}=="TPPS/2 Elan TrackPoint",
-ATTR{device/sensitivity}="200",
-ATTR{device/speed}="150",
-ATTR{device/inertia}="10",
-ATTR{device/press_to_select}="0"
-```
+	```
+	sudo nano /etc/udev/rules.d/10-trackpoint.rules
+	```
+	```
+	ACTION=="add",
+	SUBSYSTEM=="input",
+	ATTR{name}=="TPPS/2 Elan TrackPoint",
+	ATTR{device/sensitivity}="200",
+	ATTR{device/speed}="150",
+	ATTR{device/inertia}="10",
+	ATTR{device/press_to_select}="0"
+	```
 
 3. Apply `udev` rules changes
 
-```
-sudo udevadm trigger
-```
+	```
+	sudo udevadm trigger
+	```
 
 4. Recheck the driver used for trackpoint
 
-```
-grep -i "Using input driver" /var/log/Xorg.0.log
-```
+	```
+	grep -i "Using input driver" /var/log/Xorg.0.log
+	```
 
-```
-[ 19868.628] (II) Using input driver 'libinput' for 'Power Button'
-[ 19868.739] (II) Using input driver 'libinput' for 'Video Bus'
-[ 19868.789] (II) Using input driver 'libinput' for 'Power Button'
-[ 19868.829] (II) Using input driver 'libinput' for 'Sleep Button'
-[ 19868.870] (II) Using input driver 'libinput' for 'ELAN901C:00 04F3:2D4C'
-[ 19868.929] (II) Using input driver 'libinput' for 'ELAN0679:00 04F3:3196 Mouse'
-[ 19868.978] (II) Using input driver 'libinput' for 'ELAN0679:00 04F3:3196 Touchpad'
-[ 19869.042] (II) Using input driver 'libinput' for 'AT Translated Set 2 keyboard'
-[ 19869.099] (II) Using input driver 'evdev' for 'TPPS/2 Elan TrackPoint'
-[ 19869.107] (II) Using input driver 'libinput' for 'ThinkPad Extra Buttons'
-```
+	```
+	[ 19868.628] (II) Using input driver 'libinput' for 'Power Button'
+	[ 19868.739] (II) Using input driver 'libinput' for 'Video Bus'
+	[ 19868.789] (II) Using input driver 'libinput' for 'Power Button'
+	[ 19868.829] (II) Using input driver 'libinput' for 'Sleep Button'
+	[ 19868.870] (II) Using input driver 'libinput' for 'ELAN901C:00 04F3:2D4C'
+	[ 19868.929] (II) Using input driver 'libinput' for 'ELAN0679:00 04F3:3196 Mouse'
+	[ 19868.978] (II) Using input driver 'libinput' for 'ELAN0679:00 04F3:3196 Touchpad'
+	[ 19869.042] (II) Using input driver 'libinput' for 'AT Translated Set 2 keyboard'
+	[ 19869.099] (II) Using input driver 'evdev' for 'TPPS/2 Elan TrackPoint'
+	[ 19869.107] (II) Using input driver 'libinput' for 'ThinkPad Extra Buttons'
+	```
 
 5. xinput output
-```
-xinput list-props "TPPS/2 Elan TrackPoint"
-Device 'TPPS/2 Elan TrackPoint':
-	Device Enabled (175):	1
-	Coordinate Transformation Matrix (177):	1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
-	Device Accel Profile (301):	0
-	Device Accel Constant Deceleration (302):	1.000000
-	Device Accel Adaptive Deceleration (303):	1.000000
-	Device Accel Velocity Scaling (304):	17.873051
-	Device Product ID (294):	2, 10
-	Device Node (293):	"/dev/input/event8"
-	Evdev Axis Inversion (354):	0, 0
-	Evdev Axes Swap (356):	0
-	Axis Labels (357):	"Rel X" (185), "Rel Y" (186)
-	Button Labels (358):	"Button Left" (178), "Button Middle" (179), "Button Right" (180), "Button Wheel Up" (181), "Button Wheel Down" (182), "Button Horiz Wheel Left" (183), "Button Horiz Wheel Right" (184)
-	Evdev Scrolling Distance (359):	0, 0, 0
-	Evdev Middle Button Emulation (360):	0
-	Evdev Middle Button Timeout (361):	50
-	Evdev Middle Button Button (362):	2
-	Evdev Third Button Emulation (363):	0
-	Evdev Third Button Emulation Timeout (364):	1000
-	Evdev Third Button Emulation Button (365):	3
-	Evdev Third Button Emulation Threshold (366):	20
-	Evdev Wheel Emulation (367):	1
-	Evdev Wheel Emulation Axes (368):	6, 7, 4, 5
-	Evdev Wheel Emulation Inertia (369):	10
-	Evdev Wheel Emulation Timeout (370):	200
-	Evdev Wheel Emulation Button (371):	2
-	Evdev Drag Lock Buttons (372):	0
-```
+	```
+	xinput list-props "TPPS/2 Elan TrackPoint"
+	Device 'TPPS/2 Elan TrackPoint':
+		Device Enabled (175):	1
+		Coordinate Transformation Matrix (177):	1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+		Device Accel Profile (301):	0
+		Device Accel Constant Deceleration (302):	1.000000
+		Device Accel Adaptive Deceleration (303):	1.000000
+		Device Accel Velocity Scaling (304):	17.873051
+		Device Product ID (294):	2, 10
+		Device Node (293):	"/dev/input/event8"
+		Evdev Axis Inversion (354):	0, 0
+		Evdev Axes Swap (356):	0
+		Axis Labels (357):	"Rel X" (185), "Rel Y" (186)
+		Button Labels (358):	"Button Left" (178), "Button Middle" (179), "Button Right" (180), "Button Wheel Up" (181), "Button Wheel Down" (182), "Button Horiz Wheel Left" (183), "Button Horiz Wheel Right" (184)
+		Evdev Scrolling Distance (359):	0, 0, 0
+		Evdev Middle Button Emulation (360):	0
+		Evdev Middle Button Timeout (361):	50
+		Evdev Middle Button Button (362):	2
+		Evdev Third Button Emulation (363):	0
+		Evdev Third Button Emulation Timeout (364):	1000
+		Evdev Third Button Emulation Button (365):	3
+		Evdev Third Button Emulation Threshold (366):	20
+		Evdev Wheel Emulation (367):	1
+		Evdev Wheel Emulation Axes (368):	6, 7, 4, 5
+		Evdev Wheel Emulation Inertia (369):	10
+		Evdev Wheel Emulation Timeout (370):	200
+		Evdev Wheel Emulation Button (371):	2
+		Evdev Drag Lock Buttons (372):	0
+	```
 
