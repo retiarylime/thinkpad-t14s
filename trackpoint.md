@@ -92,7 +92,7 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 - [https://baach.de/Members/jhb/fixing-the-trackpoint-on-ubuntu](https://baach.de/Members/jhb/fixing-the-trackpoint-on-ubuntu)
 - [https://calvinrw.com/thinkpad-trackpoint](https://calvinrw.com/thinkpad-trackpoint)
 
-1. Conf to use `evdev` driver
+1. Create config file to use `evdev` driver
 
 	```
 	sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
