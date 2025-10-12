@@ -121,7 +121,7 @@ Device 'TPPS/2 Elan TrackPoint':
 
 	```bash
 	mkdir -p ~/.local/bin
-	nano ~/.local/b	- Though modifying this value will give only slight improvement.in/psmouse-xinput.sh
+	nano ~/.local/bin/psmouse-xinput.sh
 	```
 
 	Paste this:
