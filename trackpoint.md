@@ -2,7 +2,7 @@
 
 ## Original settings
 
-```
+```bash
 xinput list-props "TPPS/2 Elan TrackPoint"
 Device 'TPPS/2 Elan TrackPoint':
 	Device Enabled (175):	1
@@ -54,9 +54,6 @@ Device 'TPPS/2 Elan TrackPoint':
 
 [https://wpyoga.dev/blog/2022/04/27/thinkpad-t14-trackpoint-linux](https://wpyoga.dev/blog/2022/04/27/thinkpad-t14-trackpoint-linux)
 
-> [!NOTE]
-> If you have custom `.conf` in `/etc/X11/xorg.conf.d/`, please make sure your default driver is `libinput` before running the commands below.
-
 ### 1. Use generic psmouse instead of specific Trackpoint driver
 
 - Create systemd service to reload psmouse
@@ -105,7 +102,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	xinput --set-prop "PS/2 Generic Mouse" "Coordinate Transformation Matrix" X 0 0 0 Y 0 0 0 1
 	```
 
-	- Change X & Y to value between 1.0 - 3.0. Default value is 1.0.
+	- Change X & Y to value between 1.0 - 3.0 for acceleration and <1.0 for deceleration. Default value is 1.0.
 	- My favourite is 1.5.
 
 - Modify the `libinput Accel Speed`
@@ -116,6 +113,7 @@ Device 'TPPS/2 Elan TrackPoint':
 
 	- Change z to value between >0 - 1.0.
 	- My favourite is 0.65.
+	- _Note: Modifying the 'libinput Accel Speed' value will only give a slight improvement._
 
 ### 3. Make the mouse properties persist
 
@@ -123,10 +121,10 @@ Device 'TPPS/2 Elan TrackPoint':
 
 	```bash
 	mkdir -p ~/.local/bin
-	nano ~/.local/bin/psmouse-xinput.sh
+	nano ~/.local/b	- Though modifying this value will give only slight improvement.in/psmouse-xinput.sh
 	```
 
-	Paste:
+	Paste this:
 
 	```bash
 	#!/bin/bash
@@ -186,21 +184,21 @@ Device 'TPPS/2 Elan TrackPoint':
 
 Default value `libinput Accel Speed (318):	0.224944`
 
-```
+```bash
 xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.5
 ```
 
 ## Changing trackpoint sensitivity
 
 - Default value 
-	```
+	```bash
 	$ cat  /sys/devices/platform/i8042/serio1/sensitivity
 
 	128
 	```
 
 - To edit value
-	```
+	```bash
 	echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 	```
 
@@ -210,16 +208,16 @@ xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.5
 
 > However, I want to keep the value after reboot. I noticed that my trackpoint was named as "TPPS/2 Elan TrackPoint", instead of the "TPPS/2 IBM TrackPoint" mentioned in most articles.
 > 
-```
+```bash
 $ cat /sys/devices/platform/i8042/serio1/input/input6/name
 TPPS/2 Elan TrackPoint
 ```
 > I wrote an udev rule for my "TPPS/2 Elan TrackPoint" to lower the sensitivity from 128 to 64.
-```
+```bash
 $ vi /etc/udev/rules.d/10-trackpoint.rules
 ACTION=="add", SUBSYSTEM=="input", ATTR{name}=="TPPS/2 Elan TrackPoint", ATTR{device/sensitivity}="64", ATTR{device/press_to_select}="1"
 ```
-```
+```bash
 $ sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
@@ -233,10 +231,10 @@ $ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 1. Create config file to use `evdev` driver
 
-	```
+	```bash
 	sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
 	```
-	```
+	```bash
 	Section "InputClass"
 	    Identifier    "Trackpoint Wheel Emulation"
 	    Driver "evdev"
@@ -254,10 +252,10 @@ $ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 3. Configure `udev` rules for trackpoint
 
-	```
+	```bash
 	sudo nano /etc/udev/rules.d/10-trackpoint.rules
 	```
-	```
+	```bash
 	ACTION=="add",
 	SUBSYSTEM=="input",
 	ATTR{name}=="TPPS/2 Elan TrackPoint",
@@ -269,28 +267,28 @@ $ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 3. Apply `udev` rules changes
 
-	```
+	```bash
 	sudo udevadm trigger
 	```
 
 4. Recheck the driver used for trackpoint
 
-	```
+	```bash
 	grep -i "Using input driver" /var/log/Xorg.0.log
 	```
 	
 	Before:
-	```
+	```bash
 	[ 19869.099] (II) Using input driver 'libinput' for 'TPPS/2 Elan TrackPoint'
 	```
 
 	After:
-	```
+	```bash
 	[ 19869.099] (II) Using input driver 'evdev' for 'TPPS/2 Elan TrackPoint'
 	```
 
 5. xinput command output
-	```
+	```bash
 	xinput list-props "TPPS/2 Elan TrackPoint"
 	Device 'TPPS/2 Elan TrackPoint':
 		Device Enabled (175):	1
