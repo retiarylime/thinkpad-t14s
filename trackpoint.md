@@ -113,7 +113,7 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 
 2. Logout & relogin to apply changes above
 
-3. Configure `udev` rules fro trackpoint
+3. Configure `udev` rules for trackpoint
 
 	```
 	sudo nano /etc/udev/rules.d/10-trackpoint.rules
@@ -184,4 +184,3 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 		Evdev Wheel Emulation Button (371):	2
 		Evdev Drag Lock Buttons (372):	0
 	```
-
