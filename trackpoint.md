@@ -83,3 +83,5 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 > ```
 > $ sudo udevadm control --reload-rules && sudo udevadm trigger
 > ```
+
+## evdev driver
