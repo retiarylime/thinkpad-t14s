@@ -2,7 +2,7 @@
 
 ### Original 
 
-```
+```bash
 xrandr --verbose | grep -i gamma
 
 	Gamma:      1.0:1.0:1.0
@@ -28,7 +28,7 @@ xrandr --verbose | grep -i gamma
 
 1. Mask `colord.service`
 
-	```
+	```bash
 	sudo systemctl mask colord.service
 	```
 
@@ -83,7 +83,7 @@ xrandr --verbose | grep -i gamma
 
 ## After tweaks
 
-```
+```bash
 xrandr --verbose | grep -i gamma
 	
 	Gamma:      1.1:1.1:1.1

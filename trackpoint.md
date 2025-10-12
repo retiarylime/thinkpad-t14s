@@ -2,46 +2,46 @@
 
 ## Original settings
 
-	```
-	xinput list-props "TPPS/2 Elan TrackPoint"
-	Device 'TPPS/2 Elan TrackPoint':
-		Device Enabled (175):	1
-		Coordinate Transformation Matrix (177):	1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
-		libinput Natural Scrolling Enabled (309):	0
-		libinput Natural Scrolling Enabled Default (310):	0
-		libinput Scroll Methods Available (311):	0, 0, 1
-		libinput Scroll Method Enabled (312):	0, 0, 1
-		libinput Scroll Method Enabled Default (313):	0, 0, 1
-		libinput Button Scrolling Button (314):	2
-		libinput Button Scrolling Button Default (315):	2
-		libinput Button Scrolling Button Lock Enabled (316):	0
-		libinput Button Scrolling Button Lock Enabled Default (317):	0
-		libinput Middle Emulation Enabled (351):	0
-		libinput Middle Emulation Enabled Default (352):	0
-		libinput Accel Speed (318):	0.224944
-		libinput Accel Speed Default (319):	0.000000
-		libinput Accel Profiles Available (320):	1, 1, 1
-		libinput Accel Profile Enabled (321):	1, 0, 0
-		libinput Accel Profile Enabled Default (322):	1, 0, 0
-		libinput Accel Custom Fallback Points (323):	<no items>
-		libinput Accel Custom Fallback Step (324):	0.000000
-		libinput Accel Custom Motion Points (325):	<no items>
-		libinput Accel Custom Motion Step (326):	0.000000
-		libinput Accel Custom Scroll Points (327):	<no items>
-		libinput Accel Custom Scroll Step (328):	0.000000
-		libinput Left Handed Enabled (329):	0
-		libinput Left Handed Enabled Default (330):	0
-		libinput Send Events Modes Available (290):	1, 0
-		libinput Send Events Mode Enabled (291):	0, 0
-		libinput Send Events Mode Enabled Default (292):	0, 0
-		Device Node (293):	"/dev/input/event8"
-		Device Product ID (294):	2, 10
-		libinput Drag Lock Buttons (331):	<no items>
-		libinput Horizontal Scroll Enabled (332):	1
-		libinput Scrolling Pixel Distance (333):	15
-		libinput Scrolling Pixel Distance Default (334):	15
-		libinput High Resolution Wheel Scroll Enabled (335):	1
-	```
+```
+xinput list-props "TPPS/2 Elan TrackPoint"
+Device 'TPPS/2 Elan TrackPoint':
+	Device Enabled (175):	1
+	Coordinate Transformation Matrix (177):	1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
+	libinput Natural Scrolling Enabled (309):	0
+	libinput Natural Scrolling Enabled Default (310):	0
+	libinput Scroll Methods Available (311):	0, 0, 1
+	libinput Scroll Method Enabled (312):	0, 0, 1
+	libinput Scroll Method Enabled Default (313):	0, 0, 1
+	libinput Button Scrolling Button (314):	2
+	libinput Button Scrolling Button Default (315):	2
+	libinput Button Scrolling Button Lock Enabled (316):	0
+	libinput Button Scrolling Button Lock Enabled Default (317):	0
+	libinput Middle Emulation Enabled (351):	0
+	libinput Middle Emulation Enabled Default (352):	0
+	libinput Accel Speed (318):	0.224944
+	libinput Accel Speed Default (319):	0.000000
+	libinput Accel Profiles Available (320):	1, 1, 1
+	libinput Accel Profile Enabled (321):	1, 0, 0
+	libinput Accel Profile Enabled Default (322):	1, 0, 0
+	libinput Accel Custom Fallback Points (323):	<no items>
+	libinput Accel Custom Fallback Step (324):	0.000000
+	libinput Accel Custom Motion Points (325):	<no items>
+	libinput Accel Custom Motion Step (326):	0.000000
+	libinput Accel Custom Scroll Points (327):	<no items>
+	libinput Accel Custom Scroll Step (328):	0.000000
+	libinput Left Handed Enabled (329):	0
+	libinput Left Handed Enabled Default (330):	0
+	libinput Send Events Modes Available (290):	1, 0
+	libinput Send Events Mode Enabled (291):	0, 0
+	libinput Send Events Mode Enabled Default (292):	0, 0
+	Device Node (293):	"/dev/input/event8"
+	Device Product ID (294):	2, 10
+	libinput Drag Lock Buttons (331):	<no items>
+	libinput Horizontal Scroll Enabled (332):	1
+	libinput Scrolling Pixel Distance (333):	15
+	libinput Scrolling Pixel Distance Default (334):	15
+	libinput High Resolution Wheel Scroll Enabled (335):	1
+```
 
 ## Issues
 
@@ -60,10 +60,10 @@
 ### 1. Use generic psmouse instead of specific Trackpoint driver
 
 - Create systemd service to reload psmouse
-	```
+	```bash
 	sudo tee /etc/systemd/system/psmouse-fix.service >/dev/null <<'EOF'
 	```
-	```
+	```ini
 	[Unit]
 	Description=Reload psmouse with proto=imps (force reload before graphical)
 	DefaultDependencies=no
@@ -82,18 +82,18 @@
 	```
 	
 - Apply and enable the service
-	```
+	```bash
 	sudo systemctl daemon-reload
 	sudo systemctl enable psmouse-fix.service
 	```
 
 - Optional: test immediately without rebooting
-	```
+	```bash
 	sudo systemctl start psmouse-fix.service
 	```
 	
 - Check current parameter
-	```
+	```bash
 	cat /sys/module/psmouse/parameters/proto || echo "psmouse not loaded yet"
 	```
 
@@ -101,7 +101,7 @@
 
 - Modify the `Coordinate Transformation Matrix`
 
-	```
+	```bash
 	xinput --set-prop "PS/2 Generic Mouse" "Coordinate Transformation Matrix" X 0 0 0 Y 0 0 0 1
 	```
 
@@ -110,7 +110,7 @@
 
 - Modify the `libinput Accel Speed`
 
-	```
+	```bash
 	xinput --set-prop "PS/2 Generic Mouse" "libinput Accel Speed" Z
 	```
 
