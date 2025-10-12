@@ -98,7 +98,11 @@
     sudo systemctl restart power-profiles-daemon.service
     ```
 
-3. Reboot to apply changes
+3. Apply battery charge threshold
+
+    [https://github.com/retiarylime/thinkpad-t14s/blob/main/power-management/battery-charge-threshold/docs.md](https://github.com/retiarylime/thinkpad-t14s/blob/main/power-management/battery-charge-threshold/docs.md)
+
+4. Reboot to apply changes
 
 
 
