@@ -115,7 +115,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	- My favourite is 0.65.
 	- _Note: Modifying the 'libinput Accel Speed' value will only give a slight improvement._
 
-### 3. Make the mouse properties persist
+### 3. Make the mouse properties persistent
 
 - Create a script
 
