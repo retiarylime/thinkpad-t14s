@@ -81,7 +81,7 @@ sudo apt -t trixie-backports install tlp tlp-rdw
 
 [https://linrunner.de/tlp/settings/introduction.html](https://linrunner.de/tlp/settings/introduction.html)
 
-**Create backup for original `/etc/tlp.conf`**
+**Create backup of original `/etc/tlp.conf`**
 ```
 sudo cp /etc/tlp.conf /etc/tlp.conf.bak
 ```
