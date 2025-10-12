@@ -43,7 +43,7 @@ xrandr --verbose | grep -i gamma
 
 		Paste this:
 
-		```
+		```ini
 		[Unit]
 		Description=Set gamma to 0.9 after Cinnamon login
 		After=graphical-session.target

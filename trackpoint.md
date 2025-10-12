@@ -106,6 +106,7 @@
 	```
 
 	- Change X & Y to value between 1.0 - 3.0. Default value is 1.0.
+	- My favourite is 1.5.
 
 - Modify the `libinput Accel Speed`
 
@@ -114,8 +115,32 @@
 	```
 
 	- Change z to value between >0 - 1.0.
+	- My favourite is 1.0.
 
 ### 3. Make the mouse properties persist
+
+- Create a script
+
+	```bash
+	mkdir -p ~/.local/bin
+	nano ~/.local/bin/psmouse-xinput.sh
+	```
+
+	Paste:
+
+	```bash
+	#!/bin/bash
+	sleep 5
+	MOUSE_NAME=$(xinput list --name-only | grep -m1 "PS/2 Generic Mouse")
+	if [ -n "$MOUSE_NAME" ]; then
+	xinput --set-prop "$MOUSE_NAME" "Coordinate Transformation Matrix" 1.5 0 0 0 1.5 0 0 0 1
+	xinput --set-prop "$MOUSE_NAME" "libinput Accel Speed" 1
+	fi
+	```
+
+	```bash
+	chmod +x ~/.local/bin/psmouse-xinput.sh
+	```
 
 - Create a user service to set mouse properties
 
@@ -136,12 +161,7 @@
 	Type=oneshot
 	Environment=DISPLAY=:0
 	Environment=XAUTHORITY=%h/.Xauthority
-	ExecStart=/bin/bash -c '
-	sleep 5
-	MOUSE_NAME="PS/2 Generic Mouse"
-	xinput --set-prop "$MOUSE_NAME" "Coordinate Transformation Matrix" 1.5 0 0 0 1.5 0 0 0 1
-	xinput --set-prop "$MOUSE_NAME" "libinput Accel Speed" 1
-	'
+	ExecStart=%h/.local/bin/psmouse-xinput.sh
 	RemainAfterExit=yes
 
 	[Install]
