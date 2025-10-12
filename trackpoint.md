@@ -1,6 +1,6 @@
 # Trackpoint Settings for Thinkpad T14s Gen 2 AMD
 
-### Original settings
+## Original settings
 
 	```
 	xinput list-props "TPPS/2 Elan TrackPoint"
@@ -43,20 +43,20 @@
 		libinput High Resolution Wheel Scroll Enabled (335):	1
 	```
 
-# Issues
+## Issues
 
 | Driver     | Cursor  | Scrolling                                                              |
 |------------|---------|------------------------------------------------------------------------|
 | `libinput` | ❌choppy | ✅smooth                                                                |
 | `evdev`    | ✅smooth | ❌jumpy<br>_(due to scrolling is an emulation of up/down arrow button)_ |
 
-# Tweaks
+## Tweaks
 
 [https://wpyoga.dev/blog/2022/04/27/thinkpad-t14-trackpoint-linux](https://wpyoga.dev/blog/2022/04/27/thinkpad-t14-trackpoint-linux)
 
 ### 1. Use generic psmouse instead of specific Trackpoint driver
 
-1. Create systemd service to reload psmouse
+- Create systemd service to reload psmouse
 	```
 	sudo tee /etc/systemd/system/psmouse-fix.service >/dev/null <<'EOF'
 	```
@@ -76,32 +76,47 @@
 	[Install]
 	WantedBy=graphical.target
 	EOF
-```
-
-2. Apply and enable the service
+	```
+	
+- Apply and enable the service
 	```
 	sudo systemctl daemon-reload
 	sudo systemctl enable psmouse-fix.service
 	```
 
-3. Optional: test immediately without rebooting
+- Optional: test immediately without rebooting
 	```
 	sudo systemctl start psmouse-fix.service
-```
-
-4. Check current parameter
+	```
+	
+- Check current parameter
 	```
 	cat /sys/module/psmouse/parameters/proto || echo "psmouse not loaded yet"
 	```
 
 ### 2. Modify the acceleration
 
+- Modify the `Coordinate Transformation Matrix`
+
 	```
 	xinput --set-prop "PS/2 Generic Mouse" "Coordinate Transformation Matrix" X 0 0 0 Y 0 0 0 1
 	```
 
-	Modify X & Y to value between 1.0 - 3.0. Default value is 1.0.
+	- Change X & Y to value between 1.0 - 3.0. Default value is 1.0.
 
+- Modify the `libinput Accel Speed`
+
+	```
+	xinput --set-prop "PS/2 Generic Mouse" "libinput Accel Speed" Z
+	```
+
+	- Change z to value between >0 - 1.0.
+
+### 3. Logout & relogin to appy changes.
+
+---
+
+# Archive
 
 ## Changing trackpoint acceleration
 
@@ -146,7 +161,7 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 > ```
 
 
-# Use `evdev` driver instead of libinput
+## Use `evdev` driver instead of libinput
 
 ### Resources
 - [https://askubuntu.com/questions/1240460/how-to-get-the-trackpoint-sensitivity-right-on-my-thinkpad-x1-carbon-gen-6-with](https://askubuntu.com/questions/1240460/how-to-get-the-trackpoint-sensitivity-right-on-my-thinkpad-x1-carbon-gen-6-with)
