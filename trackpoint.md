@@ -115,7 +115,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	```
 
 	- Change z to value between >0 - 1.0.
-	- My favourite is 1.0.
+	- My favourite is 0.65.
 
 ### 3. Make the mouse properties persist
 
@@ -134,7 +134,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	MOUSE_NAME=$(xinput list --name-only | grep -m1 "PS/2 Generic Mouse")
 	if [ -n "$MOUSE_NAME" ]; then
 	xinput --set-prop "$MOUSE_NAME" "Coordinate Transformation Matrix" 1.5 0 0 0 1.5 0 0 0 1
-	xinput --set-prop "$MOUSE_NAME" "libinput Accel Speed" 1
+	xinput --set-prop "$MOUSE_NAME" "libinput Accel Speed" 0.65
 	fi
 	```
 

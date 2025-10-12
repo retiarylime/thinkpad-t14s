@@ -4,11 +4,11 @@
 ## Quick Guide
 
 1. On your terminal, run below
-```
+```bash
 echo 75 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
 echo 80 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
-
 ```
+
 2. You may change the percentage for `charge_start_threshold` and `charge_stop_threshold`.
 
 > [!TIP]

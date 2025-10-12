@@ -14,7 +14,7 @@
 
 [https://linrunner.de/tlp/faq/ppd.html](https://linrunner.de/tlp/faq/ppd.html)
 
-```
+```bash
 sudo systemctl stop power-profiles-daemon.service
 sudo systemctl mask power-profiles-daemon.service
 ```
@@ -64,7 +64,7 @@ echo 100 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
 [https://linrunner.de/tlp/installation/debian.html](https://linrunner.de/tlp/installation/debian.html)
 
 ```
-sudo nano /etc/apt/sources.list
+sudo nano /etc/apt/sources.listbbashash
 
 # Add the following line to your /etc/apt/sources.list:
 
