@@ -54,6 +54,9 @@
 
 [https://wpyoga.dev/blog/2022/04/27/thinkpad-t14-trackpoint-linux](https://wpyoga.dev/blog/2022/04/27/thinkpad-t14-trackpoint-linux)
 
+> [!NOTE]
+> If you have custom `.conf` in `/etc/X11/xorg.conf.d/`, please make sure your default driver is `libinput` before running the commands below.
+
 ### 1. Use generic psmouse instead of specific Trackpoint driver
 
 - Create systemd service to reload psmouse
@@ -112,7 +115,48 @@
 
 	- Change z to value between >0 - 1.0.
 
-### 3. Logout & relogin to appy changes.
+### 3. Make the mouse properties persist
+
+- Create a user service to set mouse properties
+
+	```bash
+	mkdir -p ~/.config/systemd/user
+	nano ~/.config/systemd/user/psmouse-xinput.service
+	```
+
+	Paste this:
+
+	```ini
+	[Unit]
+	Description=Adjust mouse settings after X11 starts
+	After=graphical-session.target
+	Wants=graphical-session.target
+
+	[Service]
+	Type=oneshot
+	Environment=DISPLAY=:0
+	Environment=XAUTHORITY=%h/.Xauthority
+	ExecStart=/bin/bash -c '
+	sleep 5
+	MOUSE_NAME="PS/2 Generic Mouse"
+	xinput --set-prop "$MOUSE_NAME" "Coordinate Transformation Matrix" 1.5 0 0 0 1.5 0 0 0 1
+	xinput --set-prop "$MOUSE_NAME" "libinput Accel Speed" 1
+	'
+	RemainAfterExit=yes
+
+	[Install]
+	WantedBy=default.target
+	```
+
+- Enable and test
+
+	```bash
+	systemctl --user daemon-reload
+	systemctl --user enable --now psmouse-xinput.service
+	```
+
+
+### 4. Logout & relogin to appy changes.
 
 ---
 
@@ -128,17 +172,17 @@ xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.5
 
 ## Changing trackpoint sensitivity
 
-Default value 
-```
-$ cat  /sys/devices/platform/i8042/serio1/sensitivity
+- Default value 
+	```
+	$ cat  /sys/devices/platform/i8042/serio1/sensitivity
 
-128
-```
+	128
+	```
 
-To edit value
-```
-echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
-```
+- To edit value
+	```
+	echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
+	```
 
 ### To keep value after reboot
 
@@ -146,24 +190,23 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 
 > However, I want to keep the value after reboot. I noticed that my trackpoint was named as "TPPS/2 Elan TrackPoint", instead of the "TPPS/2 IBM TrackPoint" mentioned in most articles.
 > 
-> ```
-> $ cat /sys/devices/platform/i8042/serio1/input/input6/name
-> TPPS/2 Elan TrackPoint
-> ```
->
+```
+$ cat /sys/devices/platform/i8042/serio1/input/input6/name
+TPPS/2 Elan TrackPoint
+```
 > I wrote an udev rule for my "TPPS/2 Elan TrackPoint" to lower the sensitivity from 128 to 64.
-> ```
-> $ vi /etc/udev/rules.d/10-trackpoint.rules
-> ACTION=="add", SUBSYSTEM=="input", ATTR{name}=="TPPS/2 Elan TrackPoint", ATTR{device/sensitivity}="64", ATTR{device/press_to_select}="1"
-> ```
-> ```
-> $ sudo udevadm control --reload-rules && sudo udevadm trigger
-> ```
+```
+$ vi /etc/udev/rules.d/10-trackpoint.rules
+ACTION=="add", SUBSYSTEM=="input", ATTR{name}=="TPPS/2 Elan TrackPoint", ATTR{device/sensitivity}="64", ATTR{device/press_to_select}="1"
+```
+```
+$ sudo udevadm control --reload-rules && sudo udevadm trigger
+```
 
 
 ## Use `evdev` driver instead of libinput
 
-### Resources
+**Resources**
 - [https://askubuntu.com/questions/1240460/how-to-get-the-trackpoint-sensitivity-right-on-my-thinkpad-x1-carbon-gen-6-with](https://askubuntu.com/questions/1240460/how-to-get-the-trackpoint-sensitivity-right-on-my-thinkpad-x1-carbon-gen-6-with)
 - [https://baach.de/Members/jhb/fixing-the-trackpoint-on-ubuntu](https://baach.de/Members/jhb/fixing-the-trackpoint-on-ubuntu)
 - [https://calvinrw.com/thinkpad-trackpoint](https://calvinrw.com/thinkpad-trackpoint)

@@ -36,26 +36,29 @@ xrandr --verbose | grep -i gamma
 
 	1. Create a user-level systemd service
 
-	```bash
-	mkdir -p ~/.config/systemd/user
-	nano ~/.config/systemd/user/set-gamma.service
-	```
+		```bash
+		mkdir -p ~/.config/systemd/user
+		nano ~/.config/systemd/user/set-gamma.service
+		```
 
-	Paste this:
+		Paste this:
 
-	```
+		```
 		[Unit]
-		Description=Apply gamma correction after Cinnamon starts
+		Description=Set gamma to 0.9 after Cinnamon login
 		After=graphical-session.target
 		Wants=graphical-session.target
 
 		[Service]
 		Type=oneshot
-		ExecStart=/bin/bash -c "sleep 1 && /usr/bin/xrandr --output eDP --gamma 0.9:0.9:0.9"
+		Environment=DISPLAY=:0
+		Environment=XAUTHORITY=%h/.Xauthority
+		ExecStart=/bin/bash -c "sleep 5 && /usr/bin/xrandr --output eDP --gamma 0.9:0.9:0.9"
+		RemainAfterExit=yes
 
 		[Install]
 		WantedBy=default.target
-	```
+		```
 
 	2. Enable it for your user
 
