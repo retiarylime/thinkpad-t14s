@@ -2,26 +2,27 @@
 
 ### Original 
 
-	```
-	xrandr --verbose | grep -i gamma
-		Gamma:      1.0:1.0:1.0
-		GAMMA_LUT_SIZE: 4096 
-		DEGAMMA_LUT_SIZE: 4096 
-		GAMMA_LUT: 0 
-		DEGAMMA_LUT: 0 
-		GAMMA_LUT_SIZE: 4096 
-		DEGAMMA_LUT_SIZE: 4096 
-		GAMMA_LUT: 0 
-		DEGAMMA_LUT: 0 
-		GAMMA_LUT_SIZE: 4096 
-		DEGAMMA_LUT_SIZE: 4096 
-		GAMMA_LUT: 0 
-		DEGAMMA_LUT: 0 
-		GAMMA_LUT_SIZE: 4096 
-		DEGAMMA_LUT_SIZE: 4096 
-		GAMMA_LUT: 0 
-		DEGAMMA_LUT: 0 
-	```
+```
+xrandr --verbose | grep -i gamma
+
+	Gamma:      1.0:1.0:1.0
+	GAMMA_LUT_SIZE: 4096 
+	DEGAMMA_LUT_SIZE: 4096 
+	GAMMA_LUT: 0 
+	DEGAMMA_LUT: 0 
+	GAMMA_LUT_SIZE: 4096 
+	DEGAMMA_LUT_SIZE: 4096 
+	GAMMA_LUT: 0 
+	DEGAMMA_LUT: 0 
+	GAMMA_LUT_SIZE: 4096 
+	DEGAMMA_LUT_SIZE: 4096 
+	GAMMA_LUT: 0 
+	DEGAMMA_LUT: 0 
+	GAMMA_LUT_SIZE: 4096 
+	DEGAMMA_LUT_SIZE: 4096 
+	GAMMA_LUT: 0 
+	DEGAMMA_LUT: 0 
+```
 
 ## Tweaks
 
@@ -56,8 +57,6 @@
 		WantedBy=default.target
 	```
 
-	---
-
 	2. Enable it for your user
 
 		```bash
@@ -71,8 +70,6 @@
 		xrandr --verbose | grep -i gamma
 		```
 
-	---
-
 	4. Reboot and confirm
 
 		After you log in again, check:
@@ -85,6 +82,7 @@
 
 ```
 xrandr --verbose | grep -i gamma
+	
 	Gamma:      1.1:1.1:1.1
 	GAMMA_LUT_SIZE: 4096 
 	DEGAMMA_LUT_SIZE: 4096 
