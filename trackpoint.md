@@ -150,7 +150,7 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 	[ 19869.099] (II) Using input driver 'evdev' for 'TPPS/2 Elan TrackPoint'
 	```
 
-5. xinput output
+5. xinput command output
 	```
 	xinput list-props "TPPS/2 Elan TrackPoint"
 	Device 'TPPS/2 Elan TrackPoint':
