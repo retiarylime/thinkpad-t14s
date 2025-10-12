@@ -85,7 +85,7 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 > ```
 
 
-# `evdev` driver
+# Use `evdev` driver instead of libinput
 
 ### Resources
 - [https://askubuntu.com/questions/1240460/how-to-get-the-trackpoint-sensitivity-right-on-my-thinkpad-x1-carbon-gen-6-with](https://askubuntu.com/questions/1240460/how-to-get-the-trackpoint-sensitivity-right-on-my-thinkpad-x1-carbon-gen-6-with)
@@ -139,18 +139,15 @@ echo 64 | sudo tee /sys/devices/platform/i8042/serio1/sensitivity
 	```
 	grep -i "Using input driver" /var/log/Xorg.0.log
 	```
-
+	
+	Before:
 	```
-	[ 19868.628] (II) Using input driver 'libinput' for 'Power Button'
-	[ 19868.739] (II) Using input driver 'libinput' for 'Video Bus'
-	[ 19868.789] (II) Using input driver 'libinput' for 'Power Button'
-	[ 19868.829] (II) Using input driver 'libinput' for 'Sleep Button'
-	[ 19868.870] (II) Using input driver 'libinput' for 'ELAN901C:00 04F3:2D4C'
-	[ 19868.929] (II) Using input driver 'libinput' for 'ELAN0679:00 04F3:3196 Mouse'
-	[ 19868.978] (II) Using input driver 'libinput' for 'ELAN0679:00 04F3:3196 Touchpad'
-	[ 19869.042] (II) Using input driver 'libinput' for 'AT Translated Set 2 keyboard'
+	[ 19869.099] (II) Using input driver 'libinput' for 'TPPS/2 Elan TrackPoint'
+	```
+
+	After:
+	```
 	[ 19869.099] (II) Using input driver 'evdev' for 'TPPS/2 Elan TrackPoint'
-	[ 19869.107] (II) Using input driver 'libinput' for 'ThinkPad Extra Buttons'
 	```
 
 5. xinput output
