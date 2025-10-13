@@ -1,4 +1,4 @@
-# thinkpad-t14s — Documentation & Notes
+# thinkpad-t14s
 
 This repository collects notes, tweaks and configuration snippets I use to customise my ThinkPad T14s Gen 2 AMD running LMDE 7.
 
@@ -7,8 +7,8 @@ Use this document as a living table of contents for the repo. Each section links
 ## Table of contents
 
 1. System overview
-	- [System info](system-info.md) — Hardware, kernel and environment details captured with inxi and upower.
-2. Getting started / tips
+	- [System info](system-info.md) — Hardware, kernel and environment details captured with inxi and upower.management
+2. List of my favourite apps
 	- [My favourite apps](my-favourite-apps.md) — Short list of software I rely on.
 3. Display and UI
 	- [Gamma fixes](gamma-fix.md) — How I fixed display gamma with a user systemd service and notes.
