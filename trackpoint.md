@@ -102,7 +102,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	xinput --set-prop "PS/2 Generic Mouse" "Coordinate Transformation Matrix" X 0 0 0 Y 0 0 0 1
 	```
 
-	- Change X & Y to value between 1.0 - 3.0 for acceleration and <1.0 for deceleration. Default value is 1.0.
+	- Change X & Y to value >1.0 for acceleration and <1.0 for deceleration. Default value is 1.0.
 	- My favourite is 1.5.
 
 - Modify the `libinput Accel Speed`
