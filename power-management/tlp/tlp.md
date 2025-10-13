@@ -100,7 +100,7 @@
 
 3. Apply battery charge threshold
 
-    [https://github.com/retiarylime/thinkpad-t14s/blob/main/power-management/battery-charge-threshold/battery-charge-threshold.md](https://github.com/retiarylime/thinkpad-t14s/blob/main/power-management/battery-charge-threshold/battery-charge-threshold.md)
+    [battery-charge-threshold](../battery-charge-threshold/battery-charge-threshold.md)
 
 4. Reboot to apply changes
 
