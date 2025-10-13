@@ -1,5 +1,6 @@
 ## Original resource 
-- from [https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux](https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux)
+- From [https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux](https://linuxconfig.org/how-to-set-battery-charge-thresholds-on-linux)
+- To set battery start and stop charge threshold without TLP.
 
 ## Quick Guide
 
