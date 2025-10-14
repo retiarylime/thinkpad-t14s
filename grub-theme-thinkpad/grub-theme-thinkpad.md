@@ -34,5 +34,5 @@ sudo cp -r /path/to/the/cloned/repo/thinkpad-t14s/grub-theme-thinkpad/hyperfluen
 
 5. Run `reboot` to reboot the system and test your new awesome-looking GRUB theme! :)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Make sure to disable secure boot in your BIOS settings
