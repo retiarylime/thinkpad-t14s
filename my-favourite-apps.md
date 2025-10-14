@@ -31,4 +31,5 @@
 - gThumb
 - Mission Center
 - CopyQ
+- Pick
 - Screen Ruler
