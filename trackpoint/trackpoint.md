@@ -44,7 +44,7 @@ Device 'TPPS/2 Elan TrackPoint':
 ```
 
 ## Issues
-`/etc/udev/rules.d/10-trackpoint.rules
+
 | Driver     | Cursor  | Scrolling                                                              |
 |------------|---------|------------------------------------------------------------------------|
 | `libinput` | ✅smooth  | ✅smooth                                                                |
