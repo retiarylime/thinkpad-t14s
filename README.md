@@ -15,6 +15,7 @@ Use this document as a living table of contents for the repo. Each section links
 3. Display and UI
 	- [Gamma fixes](gamma-fix.md) — Fixed display gamma with a user systemd service and notes.
 	- [GTK styling tweaks](gtk-styling/gtk-styling.md) — Custom `gtk.css` adjustments to highlight active window using coloured borders.
+	- [Thinkpad wallpaper](wallpaper) — Wallpapers for Thinkpad.
 4. Input and pointing devices
 	- [Trackpoint tweaks](trackpoint/trackpoint.md) — Smoother TrackPoint tweaks for my ThinkPad.
 5. Power management
