@@ -4,6 +4,8 @@ This repository collects notes, tweaks and configuration snippets I use to custo
 
 Use this document as a living table of contents for the repo. Each section links to a focused guide or configuration file.
 
+![screenshot](screenshot.png)
+
 ## Table of contents
 
 1. System overview
