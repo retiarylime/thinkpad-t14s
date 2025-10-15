@@ -8,7 +8,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	Device Enabled (175):	1
 	Coordinate Transformation Matrix (177):	1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
 	libinput Natural Scrolling Enabled (309):	0
-	libinput Natural Scrolling Enabled Default (310):	0
+	libinput Natural Scrolling Enabled Default (lbinput310):	0
 	libinput Scroll Methods Available (311):	0, 0, 1
 	libinput Scroll Method Enabled (312):	0, 0, 1
 	libinput Scroll Method Enabled Default (313):	0, 0, 1
@@ -64,7 +64,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	```bash
 	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 0 1 0
 
-	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.2
+	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.3
 	```
 
 	- After confirming the acceleration profile & speed, run the command below:
@@ -80,16 +80,16 @@ Device 'TPPS/2 Elan TrackPoint':
 		MatchProduct    "TPPS/2 Elan TrackPoint"
 		MatchDevicePath    "/dev/input/event*"
 		Option			"AccelProfile"		"flat"
-		Option			"AccelSpeed"		"0.2"
+		Option			"AccelSpeed"		"0.3"
 	EndSection
 	```
 
 	- Profile: Supports three profiles: “adaptive”, “flat” and “custom” respectively in order. Sets either boolean [0, 1]. E.g. to enable `adaptive` profile, set to `1 0 0`. My favourite profile is flat `0 1 0`.
 
-	- Speed:  Sets the pointer acceleration speed within the range [-1, 1]. 0 is default. My favourite speed is `0.2`.
+	- Speed:  Sets the pointer acceleration speed within the range [-1, 1]. 0 is default. My favourite speed is `0.3`.
 
 
-2. You can modify the `udev` rules trackpoint device attributes at `/etc/udev/rules.d/10-trackpoint.rules`
+<!-- Optional:  You can also modify the `udev` rules trackpoint device attributes at `/etc/udev/rules.d/10-trackpoint.rules`
 
 	```bash
 	sudo nano /etc/udev/rules.d/10-trackpoint.rules
@@ -99,16 +99,13 @@ Device 'TPPS/2 Elan TrackPoint':
 	ACTION=="add",
 	SUBSYSTEM=="input",
 	ATTR{name}=="TPPS/2 Elan TrackPoint",
-	ATTR{device/sensitivity}="190",
-	ATTR{device/speed}="150",
-	ATTR{device/inertia}="10",
-	ATTR{device/rate}="100",libinput
-	ATTR{device/press_to_select}="0" 
+	ATTR{device/sensitivity}="200",
+	ATTR{device/rate}="100"  -->
 	```
 
-3. Logout and relogin to apply changes.
+2. Logout and relogin to apply changes.
 
-4. Final `libinput` properties for trackpoint
+3. Final `libinput` properties for trackpoint
 
 	```bash
 	xinput --list-props "TPPS/2 Elan TrackPoint"
