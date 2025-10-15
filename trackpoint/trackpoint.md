@@ -60,42 +60,42 @@ Device 'TPPS/2 Elan TrackPoint':
 
 1. Set `libinput` as driver for trackpoint at `/etc/X11/xorg.conf.d/20-thinkpad.conf`. You need to modify the acceleration profile and speed to your liking.
 
-	- You can test and play around with acceleration values using command below:
+	- **Temporary:** you can test and play around with acceleration values using command below:
 
 
-	```bash
-	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 0 1 0
+		```bash
+		xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 0 1 0
 
-	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.3
-	```
+		xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.3
+		```
 
-	- **libinput Accel Profile Enabled**
-		- 3 boolean values (8 bit, 0 or 1), in order "adaptive", "flat", "custom". Indicates which acceleration profile is currently enabled on this device.
+		- **libinput Accel Profile Enabled**
+			- 3 boolean values (8 bit, 0 or 1), in order "adaptive", "flat", "custom". Indicates which acceleration profile is currently enabled on this device.
 
-	- **libinput Accel Speed**
-		- 1 32-bit float value, defines the pointer speed. Value range -1, 1. This only applies to the flat or adaptive profile.
+		- **libinput Accel Speed**
+			- 1 32-bit float value, defines the pointer speed. Value range -1, 1. This only applies to the flat or adaptive profile.
 
-	- After confirming the acceleration profile & speed value, run the command below:
+	- **Persistent:** after confirming the acceleration profile & speed value, run the command below:
 
-	```bash
-	sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
-	```
+		```bash
+		sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
+		```
 
-	```conf
-	Section "InputClass"
-		Identifier    "Trackpoint Wheel Emulation"
-		Driver "libinput"
-		MatchProduct    "TPPS/2 Elan TrackPoint"
-		MatchDevicePath    "/dev/input/event*"
-		Option			"AccelProfile"		"flat"
-		Option			"AccelSpeed"		"0.3"
-	EndSection
-	```
-	- **Option "AccelProfile" "string"**
-		- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the libinput documentation.
+		```conf
+		Section "InputClass"
+			Identifier    "Trackpoint Wheel Emulation"
+			Driver "libinput"
+			MatchProduct    "TPPS/2 Elan TrackPoint"
+			MatchDevicePath    "/dev/input/event*"
+			Option			"AccelProfile"		"flat"
+			Option			"AccelSpeed"		"0.3"
+		EndSection
+		```
+		- **Option "AccelProfile" "string"**
+			- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the libinput documentation.
 
-	- **Option "AccelSpeed" "float"**
-		- Sets the pointer acceleration speed within the range [-1, 1]. This only applies to the flat or adaptive profile.
+		- **Option "AccelSpeed" "float"**
+			- Sets the pointer acceleration speed within the range [-1, 1]. This only applies to the flat or adaptive profile.
 
 <!-- Optional:  You can also modify the `udev` rules trackpoint device attributes at `/etc/udev/rules.d/10-trackpoint.rules`
 
@@ -113,9 +113,20 @@ Device 'TPPS/2 Elan TrackPoint':
 
 2. Logout and relogin to apply changes.
 
-3. You can test your accuracy on trackpoint on this [link](https://mouseaccuracy.com/)
+3. Check the driver used for your trackpoint, make sure it is `libinput`
 
-4. Final `libinput` properties for trackpoint
+	```bash
+	grep -i "Using input driver" /var/log/Xorg.0.log
+	```
+
+	The output:
+	```bash
+	[   324.647] (II) Using input driver 'libinput' for 'TPPS/2 Elan TrackPoint'
+	```
+
+4. You can test your accuracy on trackpoint on this [link](https://mouseaccuracy.com/)
+
+5. Final `libinput` properties for trackpoint
 
 	```bash
 	xinput --list-props "TPPS/2 Elan TrackPoint"
