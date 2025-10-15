@@ -70,10 +70,10 @@ Device 'TPPS/2 Elan TrackPoint':
 		```
 
 		- **libinput Accel Profile Enabled**
-			- 3 boolean values (8 bit, 0 or 1), in order "adaptive", "flat", "custom". Indicates which acceleration profile is currently enabled on this device.
+			- 3 boolean values (8 bit, 0 or 1), in order "adaptive", "flat", "custom". Indicates which acceleration profile is currently enabled on this device. My favourite profile is flat `0 1 0`.
 
 		- **libinput Accel Speed**
-			- 1 32-bit float value, defines the pointer speed. Value range -1, 1. This only applies to the flat or adaptive profile.
+			- 1 32-bit float value, defines the pointer speed. Value range -1, 1. This only applies to the flat or adaptive profile.  My favourite speed is `0.3`.
 
 	- **Persistent:** after confirming the acceleration profile & speed value, run the command below:
 
@@ -92,10 +92,10 @@ Device 'TPPS/2 Elan TrackPoint':
 		EndSection
 		```
 		- **Option "AccelProfile" "string"**
-			- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the libinput documentation.
+			- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the [libinput documentation](https://www.mankier.com/4/libinput#Custom_Acceleration_Profile). My favourite profile is `flat`.
 
 		- **Option "AccelSpeed" "float"**
-			- Sets the pointer acceleration speed within the range [-1, 1]. This only applies to the flat or adaptive profile.
+			- Sets the pointer acceleration speed within the range [-1, 1]. This only applies to the flat or adaptive profile. My favourite speed is `0.3`.
 
 <!-- Optional:  You can also modify the `udev` rules trackpoint device attributes at `/etc/udev/rules.d/10-trackpoint.rules`
 
