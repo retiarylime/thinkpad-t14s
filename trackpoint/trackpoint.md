@@ -97,7 +97,7 @@
 			EndSection
 			```
 		- **Option "AccelProfile" "string"**
-			- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the [libinput documentation](https://www.mankier.com/4/libinput#Custom_Acceleration_Profile). My favourite profile is `flat`.
+			- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the [libinput documentation](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration-profiles). My favourite profile is `flat`.
 
 		- **Option "AccelSpeed" "float"**
 			- Sets the pointer acceleration speed within the range [-1, 1]. This only applies to the flat or adaptive profile. My favourite speed is `0.3`.
