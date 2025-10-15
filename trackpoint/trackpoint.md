@@ -56,9 +56,11 @@
 
 ## `libinput` config
 
-**Resources:**
+### Resources:
 - [https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration](https://wayland.freedesktop.org/libinput/doc/latest/pointer-acceleration.html#pointer-acceleration)
 - [https://www.mankier.com/4/libinput](https://www.mankier.com/4/libinput)
+
+### Steps:
 
 1. Set `libinput` as driver for trackpoint at `/etc/X11/xorg.conf.d/20-thinkpad.conf`. You need to modify the acceleration profile and speed to your liking.
 
