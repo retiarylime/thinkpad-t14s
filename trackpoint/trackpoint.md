@@ -69,6 +69,12 @@ Device 'TPPS/2 Elan TrackPoint':
 	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.3
 	```
 
+	- **libinput Accel Profile Enabled**
+		- 3 boolean values (8 bit, 0 or 1), in order "adaptive", "flat", "custom". Indicates which acceleration profile is currently enabled on this device.
+
+	- **libinput Accel Speed**
+		- 1 32-bit float value, defines the pointer speed. Value range -1, 1. This only applies to the flat or adaptive profile.
+
 	- After confirming the acceleration profile & speed value, run the command below:
 
 	```bash
@@ -85,11 +91,11 @@ Device 'TPPS/2 Elan TrackPoint':
 		Option			"AccelSpeed"		"0.3"
 	EndSection
 	```
+	- **Option "AccelProfile" "string"**
+		- Sets the pointer acceleration profile to the given profile. Permitted values are adaptive, flat, custom. Not all devices support this option or all profiles. If a profile is unsupported, the default profile for this device is used. For a description on the profiles and their behavior, see the libinput documentation.
 
-	- Profile: Supports three profiles: “adaptive”, “flat” and “custom” respectively in order. Sets either boolean [0, 1]. E.g. to enable `adaptive` profile, set to `1 0 0`. My favourite profile is flat `0 1 0`.
-
-	- Speed:  Sets the pointer acceleration speed within the range [-1, 1]. 0 is default. My favourite speed is `0.3`.
-
+	- **Option "AccelSpeed" "float"**
+		- Sets the pointer acceleration speed within the range [-1, 1]. This only applies to the flat or adaptive profile.
 
 <!-- Optional:  You can also modify the `udev` rules trackpoint device attributes at `/etc/udev/rules.d/10-trackpoint.rules`
 
