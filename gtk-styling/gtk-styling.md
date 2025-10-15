@@ -1,3 +1,14 @@
+# GTK Styling
+
+## Preview
+
+![screenshot1](screenshot1.png)
+![screenshot2](screeshot2.png)
+
+_*Note the border highlight on active window_
+
+## Quick Installation
+
 ### 1. Original resource:
    - gtk.css from [https://github.com/the-allanc/minty-color-titles](https://github.com/the-allanc/minty-color-titles)
 ### 2. Copy to ~/.config/gtk-3.0/gtk.css

@@ -1,6 +1,13 @@
 ## Original resource 
 - Inspired by [https://github.com/Coopydood/HyperFluent-GRUB-Theme](https://github.com/Coopydood/HyperFluent-GRUB-Theme)
 
+## Showcase
+
+### Background
+  ![background](hyperfluent-thinkpad/background.png)
+### Preview (captured on camera)
+  ![preview](hyperfluent-thinkpad/preview.png)
+
 ## Quick Installation Guide
 ### Manually edited specially for Thinkpad
 
