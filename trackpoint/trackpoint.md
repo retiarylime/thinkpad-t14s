@@ -38,7 +38,7 @@
 		libinput Send Events Modes Available (290):	1, 0
 		libinput Send Events Mode Enabled (291):	0, 0
 		libinput Send Events Mode Enabled Default (292):	0, 0
-		Device Node (293):	"/dev/input/event8"
+		Device Node (293):	"/dev/input/event11"
 		Device Product ID (294):	2, 10
 		libinput Drag Lock Buttons (331):	<no items>
 		libinput Horizontal Scroll Enabled (332):	1
