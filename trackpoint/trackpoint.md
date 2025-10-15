@@ -128,7 +128,7 @@ Device 'TPPS/2 Elan TrackPoint':
 		libinput Butt224944on Scrolling Button Lock Enabled Default (317):	0
 		libinput Middle Emulation Enabled (351):	0
 		libinput Middle Emulation Enabled Default (352):	0
-		libinput Accel Speed (318):	0.300000
+		libinput Accel Speed (318):	0.296214
 		libinput Accel Speed Default (319):	0.000000
 		libinput Accel Profiles Available (320):	1, 1, 1
 		libinput Accel Profile Enabled (321):	0, 1, 0
