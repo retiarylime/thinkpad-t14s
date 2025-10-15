@@ -100,8 +100,8 @@ Device 'TPPS/2 Elan TrackPoint':
 	SUBSYSTEM=="input",
 	ATTR{name}=="TPPS/2 Elan TrackPoint",
 	ATTR{device/sensitivity}="200",
-	ATTR{device/rate}="100"  -->
-	```
+	ATTR{device/rate}="100"
+	``` -->
 
 2. Logout and relogin to apply changes.
 
@@ -123,10 +123,10 @@ Device 'TPPS/2 Elan TrackPoint':
 		libinput Button Scrolling Button (314):	2
 		libinput Button Scrolling Button Default (315):	2
 		libinput Button Scrolling Button Lock Enabled (316):	0
-		libinput Button Scrolling Button Lock Enabled Default (317):	0
+		libinput Butt224944on Scrolling Button Lock Enabled Default (317):	0
 		libinput Middle Emulation Enabled (351):	0
 		libinput Middle Emulation Enabled Default (352):	0
-		libinput Accel Speed (318):	0.200000
+		libinput Accel Speed (318):	0.300000
 		libinput Accel Speed Default (319):	0.000000
 		libinput Accel Profiles Available (320):	1, 1, 1
 		libinput Accel Profile Enabled (321):	0, 1, 0
