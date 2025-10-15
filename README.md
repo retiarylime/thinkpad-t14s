@@ -1,4 +1,4 @@
-# thinkpad-t14s
+# Thinkpad T14s Gen 2 AMD
 
 This repository collects notes, tweaks and configuration snippets I use to customise my ThinkPad T14s Gen 2 AMD running LMDE 7.
 
