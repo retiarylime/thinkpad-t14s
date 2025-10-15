@@ -4,6 +4,8 @@
 
 ```bash
 xinput list-props "TPPS/2 Elan TrackPoint"
+```
+```bash
 Device 'TPPS/2 Elan TrackPoint':
 	Device Enabled (175):	1
 	Coordinate Transformation Matrix (177):	1.000000, 0.000000, 0.000000, 0.000000, 1.000000, 0.000000, 0.000000, 0.000000, 1.000000
