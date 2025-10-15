@@ -79,8 +79,8 @@ Device 'TPPS/2 Elan TrackPoint':
 		Driver "libinput"
 		MatchProduct    "TPPS/2 Elan TrackPoint"
 		MatchDevicePath    "/dev/input/event*"
-		Option			"AccelProfile"			"flat"
-		Option			"AccelSpeed"			"0.2"
+		Option			"AccelProfile"		"flat"
+		Option			"AccelSpeed"		"0.2"
 	EndSection
 	```
 
