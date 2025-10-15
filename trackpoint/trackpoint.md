@@ -67,7 +67,7 @@ Device 'TPPS/2 Elan TrackPoint':
 	xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0.3
 	```
 
-	- After confirming the acceleration profile & speed, run the command below:
+	- After confirming the acceleration profile & speed value, run the command below:
 
 	```bash
 	sudo nano /etc/X11/xorg.conf.d/20-thinkpad.conf
@@ -105,7 +105,9 @@ Device 'TPPS/2 Elan TrackPoint':
 
 2. Logout and relogin to apply changes.
 
-3. Final `libinput` properties for trackpoint
+3. You can test your accuracy on trackpoint on this [link](https://mouseaccuracy.com/)
+
+4. Final `libinput` properties for trackpoint
 
 	```bash
 	xinput --list-props "TPPS/2 Elan TrackPoint"
