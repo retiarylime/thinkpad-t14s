@@ -62,7 +62,6 @@ Device 'TPPS/2 Elan TrackPoint':
 
 	- **Temporary:** you can test and play around with acceleration values using command below:
 
-
 		```bash
 		xinput --set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 0 1 0
 
@@ -74,6 +73,7 @@ Device 'TPPS/2 Elan TrackPoint':
 
 		- **libinput Accel Speed**
 			- 1 32-bit float value, defines the pointer speed. Value range -1, 1. This only applies to the flat or adaptive profile.  My favourite speed is `0.3`.
+
 
 	- **Persistent:** after confirming the acceleration profile & speed value, run the command below:
 
