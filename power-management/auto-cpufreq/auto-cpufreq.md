@@ -4,6 +4,8 @@ Source: [https://github.com/AdnanHodzic/auto-cpufreq](https://github.com/AdnanHo
 
 - For my machine, `auto-cpufreq` provides better battery life than `tlp`.
 
+## Installation
+
 1. Install [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq?tab=readme-ov-file#installing-auto-cpufreq)
 2. Copy [auto-cpufreq.conf](auto-cpufreq.conf) into `/etc/auto-cpufreq.conf`
 
