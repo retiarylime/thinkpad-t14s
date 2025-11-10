@@ -13,13 +13,15 @@ Use this document as a living table of contents for the repo. Each section links
 2. List of my favourite apps
 	- [My favourite apps](my-favourite-apps.md) — Short list of software I rely on.
 3. Display and UI
-	- [Gamma fixes](gamma-fix.md) — Fixed display gamma with a user systemd service and notes.
-	- [GTK styling tweaks](gtk-styling/gtk-styling.md) — Custom `gtk.css` adjustments to highlight active window using coloured borders.
+	- [Gamma fixes](gamma-fix.md) — My screen on Linux somehow has low contrast. So I fixed it by set a higher contrast display gamma with a user systemd service.
+	- [GTK styling tweaks](gtk-styling/gtk-styling.md) — Highlight active window using coloured borders with custom `gtk.css`. But has totally being replaced with my self-developed Cinnamon extension [dim-unfocused-windows](https://github.com/retiarylime/dim-unfocused-windows)
+	- [dim-unfocused-windows](https://github.com/retiarylime/dim-unfocused-windows) — My self-developed Cinnamon extension to stay focus on active window by dimming unfocused windows.
 	- [Thinkpad wallpaper](wallpaper) — Wallpapers for Thinkpad.
 4. Input and pointing devices
 	- [Trackpoint tweaks](trackpoint/trackpoint.md) — Smoother TrackPoint tweaks for my ThinkPad.
 5. Power management
-	- [TLP notes](power-management/tlp/tlp.md) — Installing and configuring TLP for battery life.
+	- [auto-cpufreq](power-management/auto-cpufreq/auto-cpufreq.md)
+	- [TLP](power-management/tlp/tlp.md) — Installing and configuring TLP for battery life. But I found that auto-cpufreq does better job at improving battery life. 
 	- [Battery charge thresholds](power-management/battery-charge-threshold/battery-charge-threshold.md) — How to set start/stop thresholds without TLP.
 6. Boot & firmware
 	- [Faster boot time notes](faster-boot-time/faster-boot-time.md) — `systemd-analyze` and services to consider disabling.
