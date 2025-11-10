@@ -4,7 +4,7 @@
 
     [https://linrunner.de/tlp/index.html](https://linrunner.de/tlp/index.html)
 
-2. Mask/Disable power-profiles-daemon
+<!-- 2. Mask/Disable power-profiles-daemon
 
     [https://www.reddit.com/r/archlinux/comments/r41ax3/uninstall_or_disable_gnome_powerprofiledaemon/](https://www.reddit.com/r/archlinux/comments/r41ax3/uninstall_or_disable_gnome_powerprofiledaemon/)
 
@@ -22,9 +22,9 @@
     ```bash
     echo 95 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
     echo sudo systemctl restart power-profiles-daemon.service100 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
-    ```
+    ``` -->
 
-4. Install TLP
+2. Install TLP
 
     [https://linrunner.de/tlp/installation/debian.html](https://linrunner.de/tlp/installation/debian.html)
 
@@ -41,7 +41,11 @@
     sudo apt -t trixie-backports install tlp tlp-rdw
     ```
 
-5. Configure TLP
+    > [!WARNING]
+    > Conflicting packages will be  uninstalled automatically i.e power-profiles-daemon.
+    > auto-cpufreq also conflict with TLP but need to manually uninstall the daemon.
+
+3. Configure TLP
 
     [https://linrunner.de/tlp/settings/introduction.html](https://linrunner.de/tlp/settings/introduction.html)
 
@@ -51,33 +55,16 @@
     ```
     [https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/](https://www.reddit.com/r/thinkpad/comments/1dub49a/tlp_configuration_for_thinkpad_p14s_gen_5_t14_gen/)
 
-- Create & copy files into `/etc/tlp.d/*.conf`
+- Copy [tlp.conf](tlp.conf) into `/etc/tlp.conf`
     ```bash
-    sudo touch /etc/tlp.d/98-tlp.conf
-    sudo sublime_text /etc/tlp.d/98-tlp.conf
+    sudo cp tlp.conf /etc/tlp.conf
     ```
 
-- Copy below config to `/etc/tlp.d/98-tlp.conf` <br>
-    [https://gist.github.com/kikislater/4de3d79b0459681933ba630e29bcb0e0](https://gist.github.com/kikislater/4de3d79b0459681933ba630e29bcb0e0)
-
-
-    **AND**
-
-    ```bash
-    sudo touch /etc/tlp.d/99-tlp.conf
-    sudo sublime_text /etc/tlp.d/99-tlp.conf
-    ```
-
-    Copy below config to `/etc/tlp.d/99-tlp.conf` to override above <br>
-    [https://gist.github.com/pauloromeira/787c75d83777098453f5c2ed7eafa42a](https://gist.github.com/pauloromeira/787c75d83777098453f5c2ed7eafa42a)
-
-
-6. Start TLP
+4. Start TLP
 
     ```bash
     sudo tlp start
     ```
-7. Logout & relogin to apply changes
 
 # Remove TLP & return to power-profiles-daemon
 
