@@ -42,8 +42,8 @@
     ```
 
     > [!WARNING]
-    > Conflicting packages will be  uninstalled automatically i.e power-profiles-daemon.
-    > auto-cpufreq also conflict with TLP but need to manually uninstall the daemon.
+    > Conflicting packages will be  uninstalled automatically i.e `power-profiles-daemon`.
+    > `auto-cpufreq` also conflict with TLP but need to manually uninstall the daemon.
 
 3. Configure TLP
 
