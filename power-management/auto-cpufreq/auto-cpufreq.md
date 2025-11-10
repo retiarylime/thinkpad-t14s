@@ -2,6 +2,7 @@
 
 Source: [https://github.com/AdnanHodzic/auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq)
 
+- Automatic CPU speed & power optimizer for Linux.
 - For my machine, `auto-cpufreq` provides better battery life than `tlp`.
 
 ## Installation
