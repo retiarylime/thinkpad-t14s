@@ -36,4 +36,4 @@ Use this document as a living table of contents for the repo. Each section links
 ## Layout of this repository
 
 - Root README (this file): docs index and TOC.
-- Individual guides are stored as Markdown files organised by topic (power-management, grub-theme-thinkpad, gtk-styling, bugs, etc.).
+- Individual guides are stored as Markdown files organised by topic (power-management, grub-theme-thinkpad, gtk-styling, bugs, etc.)
