@@ -10,7 +10,7 @@ Use this document as a living table of contents for the repo. Each section links
 
 1. System overview
 	- [System info](system-info.md) — Hardware, kernel, environment and battery details. 
-	- [My favourite apps](my-favourite-apps.md) — Short list of software I rely on.
+	- [My favourite apps](my-favourite-apps.md) — Short list of software I love.
 3. Display and UI
 	- [Gamma fixes](gamma-fix.md) — My screen on Linux somehow has low contrast. So I fixed it by setting a higher contrast display gamma and run as user systemd service.
 	- [GTK styling tweaks](gtk-styling/gtk-styling.md) — Highlight active window using coloured borders with custom `gtk.css`. But has totally being replaced with my self-developed Cinnamon extension [dim-unfocused-windows](https://github.com/retiarylime/dim-unfocused-windows)
