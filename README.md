@@ -1,6 +1,6 @@
 # Thinkpad T14s Gen 2 AMD
 
-This repository collects notes, tweaks and configuration snippets I use to customise my ThinkPad T14s Gen 2 AMD running LMDE 7.
+This repository collects notes, tweaks and configuration snippets I use to customise my ThinkPad T14s Gen 2 AMD running LMDE 7. This is actually a dual boot machine; LMDE 7 and Windows 11 Pro. 
 
 Use this document as a living table of contents for the repo. Each section links to a focused guide or configuration file.
 
