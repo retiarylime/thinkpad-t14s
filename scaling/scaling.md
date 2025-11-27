@@ -4,7 +4,10 @@
 
 - Display > Monitor scale: 100%
 
-- Font Selection: ![font-selection-settings](font-selection-settings.png)
+- Font Selection:
+<p align="center">
+<img src="font-selection-settings.png" width="500">
+<p/>
 
 ### Sublime Text
 
