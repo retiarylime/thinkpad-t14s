@@ -1,4 +1,4 @@
-# My Favourite Custom Apps Scaling
+# Apps Custom Scaling
 
 ### System settings
 
