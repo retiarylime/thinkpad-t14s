@@ -1,6 +1,6 @@
 # Apps Custom Scaling
 
-### System settings
+## System settings
 
 - Display > Monitor scale: 100%
 
@@ -9,7 +9,7 @@
 <img src="font-selection-settings.png" width="500">
 <p/>
 
-### Sublime Text
+## Sublime Text
 
 1. Open Sublime Text.
 2. Go to the menu and select Preferences > Settings. This opens two panes, one with default settings and one for user settings.
@@ -28,7 +28,7 @@
 
 5. You can also adjust just the editor font size separately by adding "font_size": 14 (or another value) to the same settings file. 
 
-### Brave Browser
+## Brave Browser
 
 1. Find all Brave Browser `.desktop` file
 
@@ -51,6 +51,6 @@ Common locations:
 > [!NOTE]
 > If the fonts on some sites are still small, you can manually adjust the Zoom level and Brave Browser will remember the zoom level for that particular sites.
 
-### VS Code
+## VS Code
 
 - Do the same as Brave Browser
